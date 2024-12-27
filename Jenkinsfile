@@ -1,8 +1,10 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven 3'
-        jdk 'JDK 11'
+        maven 'sonarmaven'
+    }
+    environment{
+        sonar_token=credentials('sonarqube-credentials')
     }
     stages {
         stage('Checkout') {
@@ -15,18 +17,14 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
-        stage('Test') {
-            steps {
-                junit 'pom.xml'
-            }
-        }
         stage('SonarQube Analysis') {
             steps {
                 bat '''
-                 sonar-scanner -Dsonar.projectKey=pipeline3 ^
-                -Dsonar.sources=. ^
-                -Dsonar.host.url=http://localhost:9000 ^
-                -Dsonar.token=sqa_e0d66921a5e37d4859d748d025d4fe0c23afcbc7
+                 mvn sonar:sonar \
+                 -Dsonar.projectKey=pipeline3 \
+                 -Dsonar.sources=. \
+                 -Dsonar.host.url=http://localhost:9000 \
+                 -Dsonar.login=%sonar_token%
                 '''
             }
         }
