@@ -13,17 +13,6 @@
         <sonar.host.url>http://localhost:9000</sonar.host.url>
         <sonar.token>sqa_e0d66921a5e37d4859d748d025d4fe0c23afcbc7</sonar.token>
     </properties>
-
-    <dependencies>
-        <!-- JUnit for Unit Testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.9.3</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
             <!-- Compiler Plugin -->
@@ -36,14 +25,6 @@
                     <target>17</target>
                 </configuration>
             </plugin>
-
-            <!-- Surefire Plugin for Running Tests -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
-            </plugin>
-
             <!-- SonarQube Plugin -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
