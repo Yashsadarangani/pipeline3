@@ -4,7 +4,7 @@ pipeline {
         maven 'sonarmaven' // Ensure this matches the Maven tool name in Jenkins
     }
     environment {
-        sonar_token = credentials('s') // Replace with your actual credential ID
+        sonar_token = credentials('sonarqube-credentials') // Replace with your actual credential ID
         PATH = "${PATH};C:\\Windows\\System32" // Ensure this is necessary
     }
     stages {
