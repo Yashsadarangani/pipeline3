@@ -32,7 +32,7 @@ pipeline {
                 -Dsonar.projectKey=pipeline3 ^
                 -Dsonar.sources=. ^
                 -Dsonar.host.url=http://localhost:9000 ^
-                -Dsonar.token=%SONAR_AUTH_TOKEN%
+                -Dsonar.token=${SONAR_AUTH_TOKEN}
                 '''
             }
         }
