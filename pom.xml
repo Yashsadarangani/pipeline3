@@ -16,17 +16,7 @@
         <!-- Sonar login token is referenced as an environment variable -->
         <sonar.login>${env.SONAR_TOKEN}</sonar.login>
     </properties>
-
-    <dependencies>
-        <!-- Example: JUnit for testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.9.3</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
+         
     <build>
         <plugins>
             <!-- Compiler Plugin -->
