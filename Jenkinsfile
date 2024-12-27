@@ -26,14 +26,16 @@ pipeline {
                     return fileExists('pom.xml') // Perform analysis only if pom.xml exists
                 }
             }
-            steps {
-                bat '''
-                sonar-scanner ^
-                -Dsonar.projectKey=pipeline3 ^
-                -Dsonar.sources=. ^
-                -Dsonar.host.url=http://localhost:9000 ^
-                -Dsonar.token=${SONAR_AUTH_TOKEN}
-                '''
+        steps {
+            withSonarQubeEnv('sonarqube-server') { // Replace 'sonarqube-server' with your SonarQube server name
+                sh '''
+                mvn sonar:sonar \
+                -Dsonar.projectKey=pipeline3 \
+                -Dsonar.projectName='pipeline3' \
+                -Dsonar.host.url=http://localhost:9000 \
+                -Dsonar.login=sqa_e0d66921a5e37d4859d748d025d4fe0c23afcbc7
+            '''
+                }    
             }
         }
 
