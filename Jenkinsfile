@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     environment {
         SONAR_HOST_URL = 'http://localhost:9000' // Replace with your SonarQube URL
         SONAR_AUTH_TOKEN = credentials('sonar-credential') // Replace with your Jenkins credential ID for SonarQube
