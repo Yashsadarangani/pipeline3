@@ -14,7 +14,7 @@
         <sonar.projectKey>pipeline3</sonar.projectKey>
         <sonar.host.url>http://localhost:9000</sonar.host.url>
         <!-- Sonar login token is referenced as an environment variable -->
-        <sonar.login>${env.sonar_token}</sonar.login>
+        <sonar.login>${env.SONAR_TOKEN}</sonar.login>
     </properties>
 
     <dependencies>
