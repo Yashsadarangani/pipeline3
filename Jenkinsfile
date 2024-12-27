@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
         PATH = "${PATH};C:\\Windows\\System32" // Ensure this is necessary
+        SONAR_TOKEN = credentials('sonarqube-credentials') // Replace with your actual credential ID
     }
     stages {
         stage('Checkout') {
@@ -20,9 +21,6 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-            environment {
-                SONAR_TOKEN = credentials('sonarqube-credentials') // Replace with your actual credential ID
-            }
             steps {
                 echo 'Starting SonarQube analysis...'
                 withSonarQubeEnv('sonarqube-server') { // Ensure 'sonarqube-server' is configured in Jenkins
