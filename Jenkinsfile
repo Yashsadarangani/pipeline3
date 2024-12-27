@@ -4,7 +4,8 @@ pipeline {
         maven 'sonarmaven'
     }
     environment{
-        sonar_token=credentials('sonarqube-credentials')
+        sonar_token=credentials('s')
+        PATH = "${PATH};C:\\Windows\\System32"
     }
     stages {
         stage('Checkout') {
@@ -25,7 +26,7 @@ pipeline {
                  -Dsonar.projectKey=pipeline3 \
                  -Dsonar.sources=src/main/java \
                  -Dsonar.host.url=http://localhost:9000 \
-                 -Dsonar.login=%sonar_token%
+                 -Dsonar.token=%sonar_token%
                 '''
                 }
             }
