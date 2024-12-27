@@ -46,5 +46,19 @@
                 <version>3.9.1.2184</version>
             </plugin>
         </plugins>
+<profiles>
+    <profile>
+        <id>sonar</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+        <properties>
+            <sonar.projectKey>pipeline3</sonar.projectKey>
+            <sonar.projectName>pipeline3</sonar.projectName>
+            <sonar.host.url>http://localhost:9000</sonar.host.url>
+            <sonar.token>sqa_e0d66921a5e37d4859d748d025d4fe0c23afcbc7</sonar.token>
+        </properties>
+    </profile>
+</profiles>
     </build>
 </project>
