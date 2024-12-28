@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         PATH = "${PATH};C:\\Windows\\System32" // Ensure this is necessary
-        SONAR_TOKEN = credentials('s') // Replace with your actual credential ID
+        SONAR_TOKEN = credentials('jenkins-token') // Replace with your actual credential ID
     }
     stages {
         stage('Checkout') {
